@@ -1,0 +1,135 @@
+/* Estilo global */
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: black; /* Fundo preto */
+    font-family: 'Nunito', sans-serif;
+}
+
+
+/* Centralização do conteúdo */
+.wrap {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container principal */
+.container {
+    width: 400px; /* Largura maior para harmonizar o design */
+    padding: 30px; /* Espaçamento interno generoso */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    text-align: center; /* Centralizando texto */
+    margin-bottom: 100px; /* Distância maior entre o container e o botão */
+}
+
+/* Título do container (opcional) */
+.container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Input de texto */
+input[type="text"] {
+    width: calc(100% - 20px); /* Ajustando largura para caber no container */
+    padding: 10px;
+    margin-bottom: 20px; /* Espaçamento entre input e resultado */
+    border-radius: 5px; /* Bordas arredondadas no input */
+    border: 1px solid #ccc;
+}
+
+/* Resultado decodificado (opcional) */
+#resultado {
+    font-size: 18px;
+}
+
+/* Botão com estilo avançado */
+.button {
+    min-width: 300px;
+    min-height: 60px;
+    display: inline-flex;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+    z-index: 1; /* Garantir que o botão fique acima dos efeitos */
+}
+
+.button::before {
+    content: '';
+    border-radius: 1000px;
+    min-width: calc(300px + 12px);
+    min-height: calc(60px + 12px);
+    border: 6px solid #00FFCB;
+    box-shadow: 0 0 60px rgba(0,255,203,.64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out;
+}
+
+.button:hover, 
+.button:focus {
+    color: #313133;
+    transform: translateY(-6px);
+}
+
+.button:hover::before, 
+.button:focus::before {
+    opacity: 1;
+}
+
+/* O efeito de anel pulsante ao redor do botão */
+.button::after {
+    content: '';
+    width: 30px; 
+    height: 30px;
+    border-radius: 100%;
+    border: 6px solid #00FFCB;
+    position: absolute;
+    z-index: 0; /* Mantém o efeito abaixo do botão */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+    opacity: 1; /* Garantindo que a animação comece visível */
+}
+
+.button:hover::after, 
+.button:focus::after {
+    opacity: 0.5; /* Em vez de ocultar completamente, suaviza o efeito */
+}
+
+/* Animação do anel */
+@keyframes ring {
+    0% {
+        width: 30px;
+        height: 30px;
+        opacity: 1;
+    }
+    100% {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+    }
+}
